@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This demonstrates an issue with Haml and JRuby 9.2.0.0 where interpolating with a leading `#` in an attribute throws an `ActionView::Template::Error`.
 
-Things you may want to cover:
+```
+ActionView::Template::Error: undefined local variable or method `partial_local_var' for #<Haml::AttributeCompiler:0x9906d99>
+```
 
-* Ruby version
+This does not occur with MRI 2.5.1 or JRuby 9.1.17.0
 
-* System dependencies
+### How to reproduce
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone the repo
+2. Install gems with `bundle install`
+3. Run the test suite with `bin/rails test:system`
